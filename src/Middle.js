@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Middle.css";
 
+// 현재 시간 표시
 function Clock() {
   const [time, setTime] = useState(new Date());
 
@@ -21,6 +22,7 @@ function Clock() {
   );
 }
 
+// 다크모드 버튼을 위한 함수형 컴포넌트
 function Button({ isActive, onClick, children }) {
   return (
     <button className={`button ${isActive ? "active" : ""}`} onClick={onClick}>
@@ -29,6 +31,7 @@ function Button({ isActive, onClick, children }) {
   );
 }
 
+//지역 선택 버튼을 위한 함수형 컴포넌트
 function Loc_Button({ isActive, onClick, children }) {
   return (
     <button
@@ -41,11 +44,13 @@ function Loc_Button({ isActive, onClick, children }) {
 }
 
 function Middle() {
+  //시계를 위한 변수
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
   const isMorning = currentHour >= 6 && currentHour < 17;
-  const [isActive, setIsActive] = useState(!isMorning);
 
+  const [isActive, setIsActive] = useState(!isMorning);
+  // 지역 선택
   const [buttonStates, setButtonStates] = useState({
     seoul: true,
     busan: false,
@@ -84,7 +89,7 @@ function Middle() {
         break;
     }
   };
-
+  //API 호출 용도
   const current = new Date();
   const year = current.getFullYear();
   const month = (current.getMonth() + 1).toString().padStart(2, "0");
@@ -104,13 +109,14 @@ function Middle() {
   }
 
   const [weatherData, setWeatherData] = useState(null);
-  const [temperature, setTemperature] = useState(null);
-  const [humidity, setHumidity] = useState(null);
-  const [precipitationType, setPrecipitationType] = useState(null);
-  const [windSpeed, setWindSpeed] = useState(null);
-  const [windChill, setWindChill] = useState(null);
-  const [rainHour, setRainHour] = useState(null);
+  const [temperature, setTemperature] = useState(null); //온도
+  const [humidity, setHumidity] = useState(null); //습도
+  const [precipitationType, setPrecipitationType] = useState(null); //강수 형태
+  const [windSpeed, setWindSpeed] = useState(null); //풍속
+  const [windChill, setWindChill] = useState(null); //체감온도
+  const [rainHour, setRainHour] = useState(null); //시간당 강수량
   const handleCityButtonClick = async (x, y) => {
+    //지역 선택 버튼에서 사용되는 함수
     var val_x = x;
     var val_y = y;
     await fetchWeatherData(val_x, val_y);
@@ -118,7 +124,7 @@ function Middle() {
 
   const fetchWeatherData = async (val_x, val_y) => {
     const url =
-      "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst";
+      "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst";
     const serviceKey =
       "IEWoUlU0P1zQW3YrM7GJsaovDsQmJjd6u8gI1tS4Imz3SitbKQ7e0psu6c+mZHVzDPTINJEjwRk5XFNg6FvUcw==";
     const baseDate = formattedDate;
@@ -145,7 +151,7 @@ function Middle() {
   };
 
   useEffect(() => {
-    fetchWeatherData("60", "127");
+    fetchWeatherData("60", "127"); //지역 기본값 : 서울
   }, []);
 
   useEffect(() => {
@@ -206,6 +212,7 @@ function Middle() {
         }
       }
       if (windSpeedData) {
+        //체감온도
         setWindSpeed(windSpeedData.obsrValue);
         const windSpeedInKmh = windSpeedData.obsrValue * 3.6; // m/s to km/h
         if (
