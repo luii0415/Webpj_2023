@@ -1,0 +1,22 @@
+.Bottom {
+  font-size: 10px;
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  margin-top: 25px;
+  padding-top: 10px;
+}
+
+.inline {
+  display: inline-block;
+}
+.p_top {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.p_bottom {
+  margin: 0;
+  padding-left: 10px;
+  text-align: left;
+}

@@ -1,0 +1,12 @@
+.a_tag {
+  display: inline-block;
+}
+
+.information-logo {
+  width: 40px;
+  height: 40px;
+  display: block; /* 블록 요소로 만들어 클릭 가능한 영역을 이미지로 제한 */
+  position: absolute; /* 상대적인 위치 설정을 위해 absolute로 변경 */
+  top: 25px; /* 부모 요소 상단에서의 거리 */
+  left: 25px; /* 부모 요소 왼쪽에서의 거리 */
+}

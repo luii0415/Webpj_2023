@@ -1,0 +1,180 @@
+@font-face {
+  font-family: "NPSfont_Bold";
+  src: url("./font/NPSfont_bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NPSfont_Regular";
+  src: url("./font/NPSfont_regular.ttf") format("truetype");
+}
+.Middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 560px;
+  border-radius: 10px;
+  border: 5px solid black;
+  transform: translate(-50%, -50%);
+  background-color: rgb(183, 206, 250);
+}
+.Middle.active {
+  background-color: black;
+  color: white;
+}
+.clockStyle {
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bolder;
+  border: 2px solid black;
+  color: black;
+  font-size: 18px;
+  width: 75px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topLeft {
+  display: flex;
+  justify-content: space-between;
+  width: calc(150px + 50px);
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.button {
+  position: relative;
+  width: 80px;
+  height: 30px;
+  border: 2.5px solid white;
+  border-radius: 30px;
+  background: white;
+  color: #000;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  margin-top: 7px;
+}
+
+.button.active {
+  background: black;
+  color: white;
+  transition-delay: 0.17s;
+}
+.button.active:hover {
+  background: white;
+  color: #000;
+  transition-delay: 0.17s;
+}
+.button:hover {
+  background: rgb(0, 0, 0);
+  color: #000;
+}
+
+.button:active {
+  background: white;
+  border-color: black;
+}
+
+.button span {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #ffc107;
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  transform: translateX(0);
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.button.active span {
+  transform: translateX(45px);
+  background: whitesmoke;
+}
+
+.button:hover span {
+  background: whitesmoke;
+}
+
+.button.active:hover span {
+  background: #ffc107;
+}
+
+.today {
+  margin-top: 10px;
+  margin-left: 50px;
+  font-family: NPSfont_Regular;
+}
+.to_print {
+  margin: 1px;
+  text-align: left;
+}
+
+.space {
+  margin-top: 20px;
+}
+
+/*주요 정보 출력*/
+.content {
+  position: relative;
+}
+
+.left {
+  position: absolute;
+  left: 10px; /* 좌측에서 10px 떨어진 위치에 배치 */
+  top: 30px; /* 상단에서 10px 떨어진 위치에 배치 */
+  width: 45%; /* 좌측 섹션의 너비를 조절할 수 있습니다. */
+  padding: 10px;
+}
+
+.right {
+  position: absolute;
+  right: -190px; /* 우측에서 10px 떨어진 위치에 배치 */
+  top: 0x; /* 상단에서 10px 떨어진 위치에 배치 */
+  width: 45%; /* 우측 섹션의 너비를 조절할 수 있습니다. */
+  padding: 10px;
+}
+.weather_info {
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 5px;
+  font-family: NPSfont_Regular;
+  font-size: 19px;
+}
+.location_info {
+  font-size: 25px;
+  font-family: NPSfont_Bold;
+}
+
+/* 지역 선택 버튼 */
+li {
+  list-style-type: none;
+  padding-bottom: 5px;
+}
+
+.loc_button {
+  width: 70px;
+  height: 35px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid #cccccc69;
+  background-color: #ffffff;
+  color: #333;
+  font-family: NPSfont_Regular;
+  font-size: 17px;
+}
+
+.loc_button.active {
+  /* 활성화되어 있을 때 */
+  background-color: #7d1479;
+  color: #fff;
+}
+.loc_button:hover {
+  /* 마우스가 올려져 있을 때 */
+  background-color: #e0adfd;
+  color: #333;
+}
